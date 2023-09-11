@@ -6,7 +6,8 @@ from versions import (Version, get_python_exec_last_versions,
 
 from .utils import get_python_exec_files
 
-ALT_BUILD_SCRIPT = './python3-build.altlinux.sh'
+ALT_BUILD_SCRIPT = (os.path.dirname(__file__)
+                    + '/../altlinux/python3-build.altlinux.sh')
 
 
 def show_python_exec_versions():
@@ -29,6 +30,7 @@ def show_python_exec_versions():
 
 
 def build(version: Version, install=False) -> str:
+    print(ALT_BUILD_SCRIPT)
     packages_dir = os.getenv('PYTHON_MANAGER_PACKAGES_DIR')
     build_script = os.getenv('PYTHON_MANAGER_BUILD_SCRIPT')
     if not packages_dir:

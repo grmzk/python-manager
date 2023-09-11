@@ -7,7 +7,7 @@ INSTALL=$4
 
 BUILD_DIR="/tmp/.private/$USER/python3-build"
 HSH_DIR="$BUILD_DIR/hsh-workdir"
-SPECFILE_TEMPLATE="python3.altlinux.spec.template"
+SPECFILE_TEMPLATE="$(dirname $0)/python3.altlinux.spec.template"
 SPECFILE="$BUILD_DIR/SPECS/$PACKAGE_NAME.spec"
 PACKAGE_FILE="${PACKAGE_NAME}-${VERSION}-alt1.$(arch).rpm"
 
