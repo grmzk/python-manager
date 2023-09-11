@@ -1,0 +1,59 @@
+{Name}
+{Version}
+Release:        alt1
+Group:          Development/Python3
+Summary:        Python 3 alternative package
+
+License:        PSFL
+URL:            https://www.python.org
+
+Source0:        https://www.python.org/ftp/python/%version/Python-%version.tar.xz
+
+BuildRequires:  lcov
+BuildRequires:  libffi-devel
+BuildRequires:  libgdbm-devel
+BuildRequires:  liblzma-devel
+BuildRequires:  libncurses-devel
+BuildRequires:  libreadline-devel
+BuildRequires:  libsqlite3-devel
+BuildRequires:  libssl-devel
+BuildRequires:  tk-devel
+BuildRequires:  libuuid-devel
+BuildRequires:  zlib-devel
+BuildRequires:  bzlib-devel
+
+AutoProv:       no
+AutoReq:        no
+
+
+%description
+Python 3 alternative package
+
+
+%prep
+%setup -c
+%setup -DTn %name-%version/Python-%version
+
+
+%build
+./configure --enable-optimizations \
+            --with-lto \
+            --prefix=/usr/local \
+            --exec-prefix=/usr/local
+%make_build
+
+
+%install
+%make_install DESTDIR=%buildroot altinstall
+
+
+%files
+/usr/local/*
+
+
+%changelog
+* Wed Sep 06 2023 Igor Muzyka <muzyka-iv@yandex.ru>
+- Added <bzlib-devel> to BuildRequires
+
+* Wed Aug 23 2023 Igor Muzyka <muzyka-iv@yandex.ru>
+- Init
