@@ -33,7 +33,7 @@ configuration:
   its own bash script to create packages.
   If you are using another distribution, you can use your own script,
   to do this, define the environment variable <PYTHON_MANAGER_BUILD_SCRIPT>
-  in "<$HOME/.config/python-manager.conf>".
+  in "$HOME/.config/python-manager.conf".
   Example: PYTHON_MANAGER_BUILD_SCRIPT="path_to_your_build_script.sh".
 
   For writing own build script consider that `package-manager` pass to build
