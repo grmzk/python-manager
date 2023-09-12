@@ -5,7 +5,7 @@ VERSION=$2
 PACKAGES_DIR=$3
 INSTALL=$4
 
-BUILD_DIR="/tmp/.private/$USER/python3-build"
+BUILD_DIR="/tmp/.private/$USER/python-manager"
 HSH_DIR="$BUILD_DIR/hsh-workdir"
 SPECFILE_TEMPLATE="$(dirname $0)/python3.altlinux.spec.template"
 SPECFILE="$BUILD_DIR/SPECS/$PACKAGE_NAME.spec"
