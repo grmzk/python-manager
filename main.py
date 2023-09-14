@@ -7,7 +7,8 @@ import textwrap
 
 from dotenv import load_dotenv
 
-from actions import build, build_outdated, show_python_exec_versions
+from actions import (build, build_outdated, show_python_exec_versions,
+                     show_python_last_versions)
 from checkers import check_distributor, check_version_str
 
 CONFIG_PATH = os.getenv('HOME') + '/.config/python-manager.conf'
@@ -64,9 +65,14 @@ configuration:
              'Example: python-manager --build 3.10.13 --install'
     )
     parser.add_argument(
-        '--python-versions', action='store_true',
+        '--versions', action='store_true',
         help='Show versions of installed python interpreters '
              'and versions on python.org'
+    )
+    parser.add_argument(
+        '--last-versions', action='store_true',
+        help='Show last available versions '
+             'of python interpreters on python.org'
     )
     return parser
 
@@ -84,7 +90,9 @@ if __name__ == '__main__':
         build_statuses = build_outdated(args.install)
         for build_status in build_statuses:
             print(build_status)
-    elif args.python_versions:
+    elif args.versions:
         show_python_exec_versions()
+    elif args.last_versions:
+        show_python_last_versions()
     else:
         parser.print_help()
