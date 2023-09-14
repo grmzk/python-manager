@@ -17,7 +17,7 @@ of the python interpreters on the same computer
 #### For ALT Linux
 
 Pre-built rpm-packages available on 
-[releases](https://github.com/grmzk/python-manager/releases) page.
+[releases](https://github.com/grmzk/python-manager/releases/latest) page.
 
 #### For other Linux Distributions
 
@@ -37,7 +37,7 @@ sudo ln -sv $PWD/main.py /usr/local/bin/python-manager
 ## Usage
 
 ```
-usage: python-manager [-h] [--build <version> | --build-outdated] [--install] [--python-versions]
+usage: python-manager [-h] [--build <version> | --build-outdated] [--install] [--versions] [--last-versions]
 
 Manager for installing or updating different versions of the python interpreters on the same computer
 
@@ -46,7 +46,8 @@ optional arguments:
   --build <version>  Building a python interpreter from source code. Example: python-manager --build 3.10.13
   --build-outdated   Building all outdated python interpreters from source code.
   --install          Install the package after the build. Used only together with `--build <version>` or `--build-outdated`. Example: python-manager --build 3.10.13 --install
-  --python-versions  Show versions of installed python interpreters and versions on python.org
+  --versions         Show versions of installed python interpreters and versions on python.org
+  --last-versions    Show last available versions of python interpreters on python.org
 
 configuration:
   By default, the assembled package is saved in the current directory.

@@ -90,6 +90,7 @@ class PythonParser(HTMLParser):
         head = requests.head('https://www.python.org/ftp/python/'
                              f'{last_version}/Python-{last_version}.tar.xz')
         if not head.ok:
+            del last_versions[last_version.get_major_middle_version()]
             last_version.middle -= 1
             last_version = last_versions.get(
                 last_version.get_major_middle_version()

@@ -2,7 +2,8 @@ import os
 from subprocess import run
 
 from versions import (Version, get_python_exec_last_versions,
-                      get_python_exec_outdated_versions)
+                      get_python_exec_outdated_versions,
+                      get_python_last_versions)
 
 from .utils import get_python_exec_files
 
@@ -12,6 +13,9 @@ ALT_BUILD_SCRIPT = (os.path.dirname(__file__)
 
 def show_python_exec_versions():
     python_exec_files = get_python_exec_files()
+    if not python_exec_files:
+        print('Python interpreters were not found in "/usr/local/bin"')
+        exit(0)
     python_versions = get_python_exec_last_versions(python_exec_files)
     python_statuses = dict()
     for python_name, versions in python_versions.items():
@@ -27,6 +31,19 @@ def show_python_exec_versions():
         )
     for python_name, status in python_statuses.items():
         print(f'{python_name}\t{status}')
+
+
+def show_python_last_versions():
+    last_versions = get_python_last_versions()
+    unsupported = ['3.0', '3.1', 'last_version']
+    for version in unsupported:
+        del last_versions[version]
+    last_versions = list(last_versions.items())
+    last_versions.sort(key=lambda item: int(item[0].split('.')[1]))
+    print('Last versions on python.org')
+    print('--------------------------------')
+    for interpreter, last_version in last_versions:
+        print(f'Python {interpreter}\t|\t {last_version}')
 
 
 def build(version: Version, install=False) -> str:

@@ -1,5 +1,5 @@
 Name:           python-manager
-Version:        0.1
+Version:        0.2
 Release:        alt1
 
 Summary:        Python installation and update manager
@@ -70,6 +70,9 @@ ln -sv %python3_sitelibdir_noarch/%name/main.py \
 
 
 %changelog
+* Thu Sep 14 2023 Igor Muzyka <muzyka-iv@yandex.ru> 0.2-alt1
+- added argument --last-versions
+
 * Wed Sep 06 2023 Igor Muzyka <muzyka-iv@yandex.ru> 0.1-alt1
 - Init
 
