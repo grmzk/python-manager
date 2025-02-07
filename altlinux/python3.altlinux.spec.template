@@ -14,6 +14,7 @@ BuildRequires:  libffi-devel
 BuildRequires:  libgdbm-devel
 BuildRequires:  liblzma-devel
 BuildRequires:  libncurses-devel
+BuildRequires:  libncursesw-devel
 BuildRequires:  libreadline-devel
 BuildRequires:  libsqlite3-devel
 BuildRequires:  libssl-devel
