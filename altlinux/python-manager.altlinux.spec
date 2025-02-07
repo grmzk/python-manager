@@ -1,5 +1,5 @@
 Name:           python-manager
-Version:        0.2
+Version:        0.4
 Release:        alt1
 
 Summary:        Python installation and update manager
@@ -10,6 +10,7 @@ BuildArch:      noarch
 
 URL:            https://github.com/grmzk/python-manager
 
+BuildRequires:  git
 BuildRequires:  rpm-build-python3
 
 Requires:       bash
@@ -22,6 +23,10 @@ Requires:       python3-module-dotenv
 Requires:       python3-module-requests
 Requires:       sed
 Requires:       wget
+
+AutoProv:       no
+AutoReq:        no
+
 
 %description
 Manager for installing or updating different versions 
@@ -70,6 +75,9 @@ ln -sv %python3_sitelibdir_noarch/%name/main.py \
 
 
 %changelog
+* Fri Feb 07 2025 Igor Muzyka <muzyka-iv@yandex.ru> 0.3-alt1
+- fixed BuildRequires in python3.altlinux.spec.template
+
 * Thu Sep 14 2023 Igor Muzyka <muzyka-iv@yandex.ru> 0.2-alt1
 - added argument --last-versions
 

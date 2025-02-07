@@ -30,6 +30,9 @@ def show_python_exec_versions():
             f'last_version == {versions["last_version"]}]'
         )
     for python_name, status in python_statuses.items():
+        if python_name == '/usr/bin/python3':
+            print(f'{python_name} (sys package)\t{status}')
+            continue
         print(f'{python_name}\t{status}')
 
 
